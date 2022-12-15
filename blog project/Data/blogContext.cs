@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using blog_project.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace blog_project.Data
 {
@@ -23,6 +24,6 @@ namespace blog_project.Data
 
 
         }
-        public DbSet<blogContext> Blog { get; set; }
+        public DbSet<blog> Blog { get; set; }
     }
 }

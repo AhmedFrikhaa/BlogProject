@@ -1,4 +1,17 @@
+global using blog_project.Data;
+global using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configurationmanager = builder.Configuration;
+builder.Services.AddControllers();
+builder.Services.AddDbContext<blogContext>(options =>
+{
+    options.UseSqlite($"Filename={configurationmanager.GetConnectionString("sqlite")}");
+});
+builder.Services.AddDbContext<userContext>(options =>
+{
+    options.UseSqlite($"Filename={configurationmanager.GetConnectionString("sqlite")}");
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

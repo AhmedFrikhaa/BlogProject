@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using blog_project.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace blog_project.Data
 {
     public class userContext : DbContext
     {
         private static userContext context;
-        private userContext(DbContextOptions o) : base(o)
+        private  userContext(DbContextOptions o) : base(o)
         {
 
         }
@@ -21,6 +22,6 @@ namespace blog_project.Data
             }
             return context;
         }
-        public DbSet<userContext> User { get; set; }
+        public DbSet<user> User { get; set; }
     }
 }
