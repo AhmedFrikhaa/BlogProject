@@ -11,6 +11,8 @@ namespace blog_project.Models
         public string? description { set; get; } 
         public string? image { set; get; } 
         public DateTime date { set; get; }
+
+        public string? theme { set; get; }
         public User user { set; get; }
         public int userId { set; get; }
         

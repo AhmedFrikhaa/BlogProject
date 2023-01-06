@@ -53,6 +53,8 @@ namespace blog_project.Controllers
                     description = blogCreate.description,
                     image = blogCreate.image,
                     userId = user.id,
+                    date = DateTime.Now,
+                    theme = blogCreate.theme
                 };
                 _blogRepo.AddBlog(blog);
             }
