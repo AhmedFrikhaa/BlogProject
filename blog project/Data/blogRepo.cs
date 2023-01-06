@@ -2,35 +2,35 @@
 
 namespace blog_project.Data
 {
-    public class blogRepo
+    public class BlogRepo
     {
-        private  blogContext context;
-        public blogRepo() {}
-        public blogRepo(IConfiguration configuration)
+        private Context context;
+        public BlogRepo() {}
+        public BlogRepo(IConfiguration configuration)
         {
-            context = blogContext.Instantiate_blogContext(configuration);
+            context = Context.Instantiate_Context(configuration);
         }
-        public void AddBlog(blog b)
+        public void AddBlog(Blog b)
         {
             context.Blog.Add(b);
             context.SaveChanges();
         }
-        public IEnumerable <blog> GetAllBlogs()
+        public IEnumerable <Blog> GetAllBlogs()
         {
             return context.Blog.ToList();
           
         }
-        public void updateBlog(blog b)
+        public void updateBlog(Blog b)
         {
             context.Blog.Update(b);
             context.SaveChanges();
         }
-        public void deleteBlog(blog b)
+        public void deleteBlog(Blog b)
         {
             context.Blog.Remove(b);
             context.SaveChanges();
         }
-        public blog getBlog(int id)
+        public Blog getBlog(int id)
         {
             return context.Blog.Where(b => b.Id == id).FirstOrDefault();
 

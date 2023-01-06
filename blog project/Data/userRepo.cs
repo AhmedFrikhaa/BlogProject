@@ -2,33 +2,38 @@
 
 namespace blog_project.Data
 {
-    public class userRepo
+    public class UserRepo
     {
-        private userContext context;
-        public userRepo() { }
-        public userRepo(IConfiguration configuration)
+        private Context context;
+        public UserRepo(IConfiguration configuration)
         {
-            context = userContext.Instantiate_userContext(configuration);
+            context = Context.Instantiate_Context(configuration);
         }
-        public void AddUser(user u)
+        public void AddUser(User u)
         {
             context.User.Add(u);
             context.SaveChanges();
         }
-        public IEnumerable<user> GetAllUsers()
+        public IEnumerable<User> GetAllUsers()
         {
             return context.User.ToList();
         }
-        public user GetUser(string username)
+        public User GetUser(string username)
         {
-            return context.User.Where(u => u.username == username).FirstOrDefault();
+            return context.User.Where(u => u.userName == username).FirstOrDefault();
         }
-        public void UpdateUser(user u)
+
+        public User? getUserByEmail(string email)
+        {
+            return context.User.Where(u =>u.email == email).FirstOrDefault();
+        }
+
+        public void UpdateUser(User u)
         {
             context.User.Update(u);
             context.SaveChanges();
         }
-        public void DeleteUser(user u)
+        public void DeleteUser(User u)
         {
             context.User.Remove(u);
             context.SaveChanges();

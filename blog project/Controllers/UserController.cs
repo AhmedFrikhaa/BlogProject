@@ -4,21 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace blog_project.Controllers
 {
-    [Route("user")]
+    
+    
     public class UserController : Controller
     {
-        private userRepo _userRepo;
+        private UserRepo _userRepo;
         // GET: UserController
         public UserController(IConfiguration configuration)
         {
-            _userRepo = new userRepo(configuration);
+            _userRepo = new UserRepo(configuration);
         }
-        [Route("/index", Name = "index")]
+        [Route("/user/getusers")]
+        
         public ActionResult getUsers()
         {
             return View(_userRepo.GetAllUsers());
         }
-
+        /*
         [Route("/user/{username}", Name = "getUser")]
         // GET: UserController/Details/5
         public ActionResult Details(string username)
@@ -95,6 +97,6 @@ namespace blog_project.Controllers
             {
                 return View();
             }
-        }
+        }*/
     }
 }
