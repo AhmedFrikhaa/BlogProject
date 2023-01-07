@@ -10,6 +10,16 @@ namespace blog_project.Data
         {
             context = Context.Instantiate_Context(configuration);
         }
+
+
+        public List<Blog> getUserBlogs(int userId)
+        {
+            List<Blog> blogs = context.Blog.Where(b => b.userId == userId).ToList() ?? new List<Blog>();
+            return blogs;
+        }
+
+
+
         public void AddBlog(Blog b)
         {
             context.Blog.Add(b);
