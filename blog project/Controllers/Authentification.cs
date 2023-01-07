@@ -21,7 +21,11 @@ namespace blog_project.Controllers
         [HttpGet]
         public IActionResult login()
         {
-            
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity!=null && identity.IsAuthenticated)
+            {
+                return RedirectToAction("index", "home");
+            }
             return View();
         }
 
@@ -69,6 +73,11 @@ namespace blog_project.Controllers
         [HttpGet]
         public IActionResult signUp()
         {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity!= null && identity.IsAuthenticated)
+            {
+                return RedirectToAction("index", "home");
+            }
             return View();
         }
 
@@ -76,7 +85,8 @@ namespace blog_project.Controllers
         [HttpPost]
         public IActionResult signUp(RegistrationModel registration)
         {
-            User user = new User(registration.userName, registration.firstName, registration.lastName, registration.picture, registration.email, registration.password);
+            User user = new User { userName=registration.userName,firstName= registration.firstName,lastName= registration.lastName, picture = registration.picture, email = registration.email, password = registration.password };
+
             userRepo.AddUser(user);
             return RedirectToAction("login");
         }

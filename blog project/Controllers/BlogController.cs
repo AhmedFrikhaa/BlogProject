@@ -44,7 +44,6 @@ namespace blog_project.Controllers
             var identity = HttpContext.User.Identity as ClaimsIdentity;
             if (identity != null)
             {
-                IEnumerable<Claim> claims = identity.Claims;
                 string username =identity.FindFirst("userName").Value;
                 User user = _userRepo.GetUser(username);
                 Blog blog = new Blog

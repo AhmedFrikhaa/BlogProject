@@ -1,102 +1,80 @@
 ﻿using blog_project.Models;
+using blog_project.Models.dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace blog_project.Controllers
 {
-    
-    
+    [Authorize]
+    [Route("user")]
     public class UserController : Controller
     {
         private UserRepo _userRepo;
+        private BlogRepo _blogRepo;
         // GET: UserController
         public UserController(IConfiguration configuration)
         {
             _userRepo = new UserRepo(configuration);
+            _blogRepo = new BlogRepo(configuration);
         }
-        [Route("/user/getusers")]
         
-        public ActionResult getUsers()
+        [Route("account")]
+        public ActionResult profilePage()
         {
-            return View(_userRepo.GetAllUsers());
-        }
-        /*
-        [Route("/user/{username}", Name = "getUser")]
-        // GET: UserController/Details/5
-        public ActionResult Details(string username)
-        {
-            return View(_userRepo.GetUser(username));
-        }
-
-        // GET: UserController/Create
-        [Route("/create", Name = "create")]
-        public ActionResult Create()
-        {
-            user u = new user();
-            _userRepo.AddUser(u);
-            return View(u);
+            User _user = fetchUser();
+            EditModel profile = new EditModel
+            {
+                userName = _user.userName,
+                firstName = _user.firstName,
+                lastName = _user.lastName,
+                picture = _user.picture,
+                email = _user.email,
+            }; 
+            List<Blog> userBlogs = _blogRepo.getUserBlogs(_user.id);
+            ViewData["userBlogs"]=userBlogs;
+            return View(profile);
         }
 
-        // POST: UserController/Create
+        [Route("account/edit")]
+        [HttpGet]
+        public ActionResult editProfile()
+        {
+            User _user = fetchUser();
+            EditModel profile = new EditModel
+            {
+                userName = _user.userName,
+                firstName = _user.firstName,
+                lastName = _user.lastName,
+                picture = _user.picture,
+                email = _user.email,
+            };
+            return View(profile);
+        }
+
+
+        [Route("account/edit")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult editProfile(EditModel editModel)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            User user = new User {
+                userName = editModel.userName,
+                email = editModel.email,
+                firstName = editModel.firstName,
+                lastName = editModel.lastName,
+            };
+            // TODO : Correct the updating system
+            _userRepo.UpdateUser(user);
+            return Redirect("profilePage");
         }
 
-        [Route("/edit/{username}", Name = "edit")]
-        // GET: UserController/Edit/5
-        public ActionResult Edit(string username)
+        private User fetchUser()
         {
-            user u = _userRepo.GetUser(username);
-            _userRepo.UpdateUser(u);
-            return View(u);
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            string username = identity.FindFirst("userName").Value;
+            User user = _userRepo.GetUser(username);
+            return user;
         }
-
-        // POST: UserController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        [Route("/delete/{username}", Name = "delete")]
-        // GET: UserController/Delete/5
-        public ActionResult Delete(string username)
-        {
-            user u = _userRepo.GetUser(username);
-            _userRepo.DeleteUser(u);
-            return View(u);
-        }
-
-        // POST: UserController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
     }
 }
