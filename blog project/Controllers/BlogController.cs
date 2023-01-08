@@ -1,4 +1,5 @@
 ﻿using blog_project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ using System.Security.Claims;
 
 namespace blog_project.Controllers
 {
+    [Authorize]
     [Route("blog")]
     public class BlogController : Controller
     {
@@ -18,18 +20,14 @@ namespace blog_project.Controllers
         }
 
         // GET: BlogController
-        [Route("/index", Name = "index")]
+        [HttpGet]
+        [Route("index", Name = "index")]
         public ActionResult getBlogs()
         {
+
             return View(_blogRepo.GetAllBlogs());
         }
         
-        
-
-
-
-
-
         [HttpGet]
         [Route("create")]
         public ActionResult Create()

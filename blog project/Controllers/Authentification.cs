@@ -28,7 +28,7 @@ namespace blog_project.Controllers
         [Route("/login")]
         [HttpPost]
         public async Task<IActionResult> loginAsync(LoginModel login)
-        {
+        {   
             User user = userRepo.getUserByEmail(login.email);
             if (user == null)
             {
@@ -59,7 +59,7 @@ namespace blog_project.Controllers
                             CookieAuthenticationDefaults.AuthenticationScheme,
                             new ClaimsPrincipal(claimsIdentity),
                             authProperties);
-                    return RedirectToAction("index","home");
+                    return RedirectToAction("getBlogs", "blog");
                 }
             }
             

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<blog_project.Models.Blog>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Feed";
+
+}
+<link rel="stylesheet" href="~/css/blog.css" asp-append-version="true" type="text/css" />
+
+<hr />
+
+<div class="align-items-center">
+    @foreach (var blog in Model)
+    {
+          <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+            <h6>@blog.title</h6>
+                    <h2>@blog.title</h2>
+                    <a href="#">read more ..<i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="course-info">
+                    <div class="progress-container">
+                        <div class="progress"></div>
+                        <span class="progress-text">
+                            @blog.theme
+                        </span>
+                    </div>
+                    <h6> @blog.user.firstName @blog.user.lastName</h6>
+                    <p>@blog.description</p>
+                </div>
+            </div>
+         </div>
+        <hr />
+    }
+
+</div>

@@ -3,8 +3,14 @@
 *@
 @model blog_project.Models.RegistrationModel
 
+<div class="card " style="max-width:45%; left:30%;">
+    <div class="card-header">
+       <h2>Sign Up</h2>
+    </div>
+    <img src="~/media/join.jpg" class="card-img-top"width="30%" height="20%">
 
-<form asp-action="signup">
+    <div class="card-body">
+        <form asp-action="signup">
   <div class="form-group row">
     <div class="form-group col-md-6">
       <label asp-for="firstName">First Name</label>
@@ -37,5 +43,10 @@
   <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
 </form>
 
+
+
+
+    </div>
+</div>
 
 

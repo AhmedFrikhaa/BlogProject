@@ -17,7 +17,10 @@ namespace blog_project.Data
         }
         public IEnumerable <Blog> GetAllBlogs()
         {
-            return context.Blog.ToList();
+
+            List<Blog> blogs =context.Blog.ToList();
+            return blogs;
+
           
         }
         public void updateBlog(Blog b)
