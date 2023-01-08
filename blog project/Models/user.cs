@@ -4,15 +4,7 @@ namespace blog_project.Models
 {
     public class User
     {
-        public User(string userName, string firstName, string lastName, string picture, string email, string password)
-        {
-            this.userName = userName;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.picture = picture;
-            this.email = email;
-            this.password = password;
-        }
+        
 
         [Key]
         public int id { get; set; }
