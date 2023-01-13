@@ -64,7 +64,7 @@ namespace blog_project.Controllers
 
 
      
-        [Route("/blog/{id}", Name = "getBlog")]
+        [Route("blog/{id}", Name = "getBlog")]
         // GET: BlogController/Details/5
         public ActionResult Details(int id)
         {
