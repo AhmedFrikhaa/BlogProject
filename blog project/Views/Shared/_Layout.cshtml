@@ -9,30 +9,29 @@
     <script src="https://kit.fontawesome.com/d0e7645bd5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/css/blog.css" asp-append-version="true" type="text/css" />
 
-
-    
-
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    
+    <header class="navbar navbar-expand navbar-toggleable navbar-light bg-white border-bottom box-shadow mb-5 flex-column flex-md-row bd-navbar">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Blog" asp-action="getBlogs">
+                <a class="navbar-brand mr-0 mr-md-2" asp-area="" asp-controller="Blog" asp-action="getBlogs">
                     <img src="~/media/icon1.jpg" alt="logo" width="33px" height="33px" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav bd-navbar-nav flex-row">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="getBlogs">Feed</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li >
-                        <li class="nav-item" style="position:relative;left:80%">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="profilePage">Profile</a>
+                        </li >
+                    </ul>     
+                </div>
+                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                        <li class="nav-item">
                             <a class="btn btn " asp-action="signOut" asp-controller="Authentification">
                                 <b>
                                     Sign Out
@@ -48,7 +47,7 @@
 
                             </a>
                         </li>
-                        <li class="nav-item" style="position:relative;left:63%">
+                        <li class="nav-item">
                             <a class="btn btn" asp-action="Create" asp-controller="Blog">
                                 <strong> add blog! </strong>
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -61,11 +60,8 @@
                             </a>
 
                         </li>
-                    
                     </ul>
-                </div>
             </div>
-        </nav>
     </header>   
     <div class="container">
         <main role="main" class="pb-3">

@@ -1,7 +1,7 @@
 ﻿@model blog_project.Models.CreateBlog
 
 
-@using (Html.BeginForm("create", "blog", FormMethod.Post))
+@using (Html.BeginForm("create", "blog", FormMethod.Post , new { enctype="multipart/form-data"}))
 {
     <div class="form-group">
     @Html.LabelFor(m=>m.title , "Title")

@@ -12,7 +12,7 @@
 <img src="~/media/login.jpg" class="card-img-top width="30%" height="20%">
 
 <div class="card-body">
-    @using (Html.BeginForm("login", "Authentification", FormMethod.Post))
+@using (Html.BeginForm("login", "Authentification", FormMethod.Post))
 {
 @Html.ValidationSummary(true)
 <div class="form-group">
@@ -30,7 +30,7 @@
 <a class="btn btn-dark mt-3" asp-area="" asp-controller="Authentification" asp-action="signup">sign up</a>
 
 }
-    </div>
+</div>
 </div> 
 
 

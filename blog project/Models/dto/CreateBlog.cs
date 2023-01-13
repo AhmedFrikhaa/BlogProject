@@ -4,7 +4,7 @@
     {
         public string title { set; get; }
         public string description { set; get; } 
-        public string image { set; get; }
+        public IFormFile image { set; get; }
         public string theme { set; get; }
 
     }

@@ -9,7 +9,7 @@
 
     <div class="card-body">
         
-@using (Html.BeginForm("signup", "Authentification", FormMethod.Post))
+@using (Html.BeginForm("signup", "Authentification", FormMethod.Post , new { enctype="multipart/form-data"}))
 {
   <div class="form-group row">
     <div class="form-group col-md-6">

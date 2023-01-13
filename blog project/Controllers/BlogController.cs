@@ -13,10 +13,12 @@ namespace blog_project.Controllers
     {
         private BlogRepo _blogRepo;
         private UserRepo _userRepo;
-        public BlogController(IConfiguration configuration)
+        private IWebHostEnvironment env;
+        public BlogController(IConfiguration configuration, IWebHostEnvironment environment)
         {
             _blogRepo = new BlogRepo(configuration);
             _userRepo = new UserRepo(configuration);
+            env = environment;
         }
 
         // GET: BlogController
@@ -24,8 +26,8 @@ namespace blog_project.Controllers
         [Route("index", Name = "index")]
         public ActionResult getBlogs()
         {
-
-            return View(_blogRepo.GetAllBlogs());
+            List<Blog> blogs = _blogRepo.GetAllBlogs();
+            return View(blogs);
         }
         
         [HttpGet]
@@ -48,14 +50,21 @@ namespace blog_project.Controllers
                 {
                     title = blogCreate.title,
                     description = blogCreate.description,
-                    image = blogCreate.image,
                     userId = user.id,
                     date = DateTime.Now,
                     theme = blogCreate.theme
                 };
+                if (blogCreate.image != null && blogCreate.image.Length > 0)
+                {
+                    var uploadDir = @"media";
+                    var filename = Guid.NewGuid().ToString() + "-" + blogCreate.image.FileName;
+                    var path = Path.Combine(env.WebRootPath, uploadDir, filename);
+                    blogCreate.image.CopyToAsync(new FileStream(path, FileMode.Create));
+                    blog.image = "/" + uploadDir + "/" + filename;
+                }
                 _blogRepo.AddBlog(blog);
             }
-            return View();
+            return RedirectToAction("account","user");
         }
 
 
