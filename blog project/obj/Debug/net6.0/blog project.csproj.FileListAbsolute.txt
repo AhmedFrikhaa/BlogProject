@@ -923,3 +923,7 @@ C:\Users\ahmed\source\repos\BLOG\blog project\obj\Debug\net6.0\refint\blog proje
 C:\Users\ahmed\source\repos\BLOG\blog project\obj\Debug\net6.0\blog project.pdb
 C:\Users\ahmed\source\repos\BLOG\blog project\obj\Debug\net6.0\blog project.genruntimeconfig.cache
 C:\Users\ahmed\source\repos\BLOG\blog project\obj\Debug\net6.0\ref\blog project.dll
+C:\Users\ahmed\source\repos\BLOG\blog project\bin\Debug\net6.0\bower.json
+C:\Users\LENOVO\Desktop\BLOG\blog project\bin\Debug\net6.0\bower.json
+C:\Users\LENOVO\Desktop\BLOG\blog project\bin\Debug\net6.0\System.Web.Helpers.Crypto.dll
+C:\Users\ahmed\source\repos\BLOG\blog project\bin\Debug\net6.0\System.Web.Helpers.Crypto.dll

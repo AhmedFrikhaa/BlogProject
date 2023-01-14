@@ -1,6 +1,6 @@
 ﻿@model blog_project.Models.RegistrationModel
 
-
+<link rel="stylesheet" href="~/css/blog.css" asp-append-version="true" type="text/css" />
 <div class="card " style="max-width:45%; left:30%;">
     <div class="card-header">
        <h2>Sign Up</h2>
@@ -9,7 +9,7 @@
 
     <div class="card-body">
         
-@using (Html.BeginForm("signup", "Authentification", FormMethod.Post))
+@using (Html.BeginForm("signup", "Authentification", FormMethod.Post , new { enctype="multipart/form-data"}))
 {
   <div class="form-group row">
     <div class="form-group col-md-6">

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "blog project/1.0.0": {
         "dependencies": {
+          "FontAwesome": "4.7.0",
           "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.12",
           "Microsoft.EntityFrameworkCore.Sqlite": "7.0.1",
@@ -15,12 +16,14 @@
           "Microsoft.EntityFrameworkCore.Tools": "7.0.1",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.11"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.11",
+          "System.Web.Helpers.Crypto": "3.2.3"
         },
         "runtime": {
           "blog project.dll": {}
         }
       },
+      "FontAwesome/4.7.0": {},
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -2467,6 +2470,14 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Web.Helpers.Crypto/3.2.3": {
+        "runtime": {
+          "lib/net40/System.Web.Helpers.Crypto.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.2.3.0"
+          }
+        }
+      },
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
           "System.Drawing.Common": "6.0.0"
@@ -2528,6 +2539,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -3781,6 +3799,13 @@
       "sha512": "sha512-Z6YfyYTCg7lOZjJzBjONJTFKGN9/NIYKSxhU5GRd+DTwHSZyvWp1xuI5aR+dLg+ayyC5Xv57KiY4oJ0tMO89fQ==",
       "path": "system.threading.timer/4.3.0",
       "hashPath": "system.threading.timer.4.3.0.nupkg.sha512"
+    },
+    "System.Web.Helpers.Crypto/3.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Kpf+faYrakOcPGMkhyA+jG1D7cyOqIwS9B35cfh8Fc5jf2lVMhxRQpDWhwNGmgZw+PBAQ1TfZMGBRojD1Glp5Q==",
+      "path": "system.web.helpers.crypto/3.2.3",
+      "hashPath": "system.web.helpers.crypto.3.2.3.nupkg.sha512"
     },
     "System.Windows.Extensions/6.0.0": {
       "type": "package",

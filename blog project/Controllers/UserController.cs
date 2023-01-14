@@ -1,7 +1,6 @@
 ﻿using blog_project.Models;
 using blog_project.Models.dto;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -24,7 +23,7 @@ namespace blog_project.Controllers
         public ActionResult profilePage()
         {
             User _user = fetchUser();
-            EditModel profile = new EditModel
+            EditUserModel profile = new EditUserModel
             {
                 userName = _user.userName,
                 firstName = _user.firstName,
@@ -42,12 +41,11 @@ namespace blog_project.Controllers
         public ActionResult editProfile()
         {
             User _user = fetchUser();
-            EditModel profile = new EditModel
+            EditUserModel profile = new EditUserModel
             {
                 userName = _user.userName,
                 firstName = _user.firstName,
                 lastName = _user.lastName,
-                picture = _user.picture,
                 email = _user.email,
             };
             return View(profile);
@@ -56,17 +54,15 @@ namespace blog_project.Controllers
 
         [Route("account/edit")]
         [HttpPost]
-        public ActionResult editProfile(EditModel editModel)
+        public ActionResult editProfile(EditUserModel editModel)
         {
-            User user = new User {
-                userName = editModel.userName,
-                email = editModel.email,
-                firstName = editModel.firstName,
-                lastName = editModel.lastName,
-            };
-            // TODO : Correct the updating system
+            User user = fetchUser();
+            user.userName = editModel.userName;
+            user.firstName = editModel.firstName;
+            user.lastName = editModel.lastName;
+            user.email = editModel.email;
             _userRepo.UpdateUser(user);
-            return Redirect("profilePage");
+            return RedirectToAction("account","user");
         }
 
         private User fetchUser()

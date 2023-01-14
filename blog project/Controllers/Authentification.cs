@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using System.Security.Claims;
+using System.Web.Helpers;
 
 namespace blog_project.Controllers
 {
@@ -11,10 +11,11 @@ namespace blog_project.Controllers
     {
 
         private UserRepo userRepo;
-
-        public Authentification(IConfiguration configuration)
+        private IWebHostEnvironment env;
+        public Authentification(IConfiguration configuration, IWebHostEnvironment hostEnvironment)
         {
             userRepo = new UserRepo(configuration);
+            env = hostEnvironment;
         }
 
         [Route("/login")]
@@ -41,7 +42,7 @@ namespace blog_project.Controllers
             }
             else
             {
-                if(login.password != user.password)
+                if(!Crypto.VerifyHashedPassword(user.password,login.password))
                 {
                     ModelState.AddModelError("password", "Please Verify Your Password");
                     return View();
@@ -56,7 +57,7 @@ namespace blog_project.Controllers
                     var authProperties = new AuthenticationProperties
                     {
                         AllowRefresh = true,
-                        ExpiresUtc = DateTime.UtcNow.AddMinutes(2),
+                        ExpiresUtc = DateTime.UtcNow.AddMinutes(10),
                     };
                     
                     await HttpContext.SignInAsync(
@@ -85,8 +86,28 @@ namespace blog_project.Controllers
         [HttpPost]
         public IActionResult signUp(RegistrationModel registration)
         {
-            User user = new User { userName=registration.userName,firstName= registration.firstName,lastName= registration.lastName, picture = registration.picture, email = registration.email, password = registration.password };
 
+            var hash = Crypto.HashPassword(registration.password);
+            User user = new User { 
+                userName=registration.userName,
+                firstName= registration.firstName,
+                lastName= registration.lastName,
+                email = registration.email,
+                password = hash
+            };
+
+            if( registration.picture != null && registration.picture.Length > 0)
+            {
+                var uploadDir = @"media";
+                var filename = Guid.NewGuid().ToString()+"-"+registration.picture.FileName;
+                var path = Path.Combine(env.WebRootPath, uploadDir, filename);
+                registration.picture.CopyToAsync(new FileStream(path, FileMode.Create));
+                user.picture ="/"+uploadDir+"/"+filename ;
+            }
+            else
+            {
+                user.picture = "/media/profileplaceholder.png";
+            }
             userRepo.AddUser(user);
             return RedirectToAction("login");
         }

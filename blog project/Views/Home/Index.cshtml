@@ -2,8 +2,58 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    body{
+        background-image : url("media/back.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    footer{
+        display : none 
+    }
+    div.welcome{
+        text-align : center;
+        margin-top : 10px;
+        padding-bottom :0px ;
+        padding-top :110px;
+    }
+    p.welcome{
+        font-size : 75px;
+    }
+    p.made{
+        font-size : 50px;
+        
+    }
+    a.sign{
+        border : 0.5px solid black;
+        text-decoration : none;
+        font-size : 50px;
+        color : white;
+        padding : 10px;
+        cursor :pointer;
+        border-radius : 10px ;
+    }
+
+    .button {
+        
+        text-align : center;
+        margin-top: 60px
+    }
+</style>
+
+<div class="welcome">
+    <p class="welcome">Welcome To Our Blog Website</p>
+    <p class="made">Made With Love From Insat </p>
+    
 </div>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="button">
+    <a class="sign" asp-action="login" asp-controller="authentification">Sign In Please</a>
+</div>
+}
+
+
+
 

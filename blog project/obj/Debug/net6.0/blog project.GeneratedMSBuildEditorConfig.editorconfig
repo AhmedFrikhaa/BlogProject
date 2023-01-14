@@ -28,6 +28,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xjcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ahmed/source/repos/BLOG/blog project/Views/Blog/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ahmed/source/repos/BLOG/blog project/Views/Blog/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ahmed/source/repos/BLOG/blog project/Views/Blog/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ahmed/source/repos/BLOG/blog project/Views/Blog/getBlogs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xnZXRCbG9ncy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,10 +62,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/ahmed/source/repos/BLOG/blog project/Views/User/editProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxlZGl0UHJvZmlsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/ahmed/source/repos/BLOG/blog project/Views/User/getUsers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxnZXRVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ahmed/source/repos/BLOG/blog project/Views/User/profilePage.cshtml]

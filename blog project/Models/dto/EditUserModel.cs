@@ -1,6 +1,6 @@
 ﻿namespace blog_project.Models.dto
 {
-    public class EditModel
+    public class EditUserModel
     {
         public string userName { set; get; }
         public string firstName { set; get; }

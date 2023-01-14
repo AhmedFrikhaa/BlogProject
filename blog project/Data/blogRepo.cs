@@ -25,16 +25,16 @@ namespace blog_project.Data
             context.Blog.Add(b);
             context.SaveChanges();
         }
-        public IEnumerable <Blog> GetAllBlogs()
+        public List<Blog> GetAllBlogs()
         {
-
-            List<Blog> blogs =context.Blog.ToList();
+            List<Blog> blogs =context.Blog.Include("user").ToList();
             return blogs;
 
           
         }
         public void updateBlog(Blog b)
         {
+            
             context.Blog.Update(b);
             context.SaveChanges();
         }
