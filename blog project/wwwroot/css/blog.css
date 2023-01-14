@@ -20,6 +20,9 @@ body {
     margin: 20px;
     overflow: hidden;
     width: 700px;
+    max-height: 300px;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
 }
 
     .course h6 {

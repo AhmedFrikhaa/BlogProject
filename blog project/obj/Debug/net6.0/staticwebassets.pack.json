@@ -9,6 +9,14 @@
       "PackagePath": "staticwebassets\\css\\blog.css"
     },
     {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\css\\createblog.css",
+      "PackagePath": "staticwebassets\\css\\createblog.css"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\css\\oneblog.css",
+      "PackagePath": "staticwebassets\\css\\oneblog.css"
+    },
+    {
       "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -253,8 +261,28 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\6a180c42-e58b-44d6-af27-a36e6824263d-20221209_163153.jpg",
+      "PackagePath": "staticwebassets\\media\\6a180c42-e58b-44d6-af27-a36e6824263d-20221209_163153.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\82eea3dd-8f9b-4937-9939-e351954d9518-20221209_163147.jpg",
+      "PackagePath": "staticwebassets\\media\\82eea3dd-8f9b-4937-9939-e351954d9518-20221209_163147.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\back.jpg",
+      "PackagePath": "staticwebassets\\media\\back.jpg"
+    },
+    {
       "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\background.jpg",
       "PackagePath": "staticwebassets\\media\\background.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\d56d7efa-2541-4a32-920f-d59ca1acc036-20221209_163147.jpg",
+      "PackagePath": "staticwebassets\\media\\d56d7efa-2541-4a32-920f-d59ca1acc036-20221209_163147.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\eb1ca19e-93aa-45c0-9069-4ef79385b44d-OIP.jpg",
+      "PackagePath": "staticwebassets\\media\\eb1ca19e-93aa-45c0-9069-4ef79385b44d-OIP.jpg"
     },
     {
       "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\icon1.jpg",
@@ -267,6 +295,10 @@
     {
       "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\login.jpg",
       "PackagePath": "staticwebassets\\media\\login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ahmed\\source\\repos\\BLOG\\blog project\\wwwroot\\media\\profileplaceholder.png",
+      "PackagePath": "staticwebassets\\media\\profileplaceholder.png"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.blog project.Microsoft.AspNetCore.StaticWebAssets.props",

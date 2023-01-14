@@ -1,0 +1,52 @@
+﻿body {
+    /*background-color: #dee9ff;*/
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(248,238,252,0.5637605383950455) 100%, rgba(0,212,255,1) 100%);
+}
+
+
+
+.registration-form {
+    padding: 50px 0;
+}
+
+form {
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-control {
+    border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .create-account {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.pageTitle {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.title {
+    display: block;
+    font-family: sans-serif;
+    margin: 10px 110px;
+    width: 300px;
+}
+
+Write to Roua Hajji

@@ -1,0 +1,13 @@
+﻿@model blog_project.Models.Blog
+@{
+    var blog = Model;
+}
+<button class="btn btn">
+    <a asp-action="Delete" asp-controller="Blog" asp-route-id="@blog.Id" method="post">
+        Delete
+    </a>
+</button>
+<button class="btn btn">
+    <a asp-action="getBlogs" asp-controller="Blog">Back to List</a>
+
+</button>

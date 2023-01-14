@@ -1,8 +1,10 @@
 ﻿using blog_project.Models;
+using blog_project.Models.dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net;
 using System.Security.Claims;
 
 namespace blog_project.Controllers
@@ -73,11 +75,12 @@ namespace blog_project.Controllers
 
 
      
-        [Route("blog/{id}", Name = "getBlog")]
+        [Route("Details/{id}", Name = "getBlog")]
         // GET: BlogController/Details/5
         public ActionResult Details(int id)
         {
-            return View(_blogRepo.getBlog(id));
+            Blog blog = _blogRepo.getBlog(id);
+            return View(blog);
         }
 
 
@@ -85,51 +88,77 @@ namespace blog_project.Controllers
 
 
 
-        [Route("/edit/{id}", Name= "edit")]
+        [Route("edit/{id}", Name = "edit")]
         // GET: BlogController/Edit/5
         public ActionResult Edit(int id)
         {
             Blog b = _blogRepo.getBlog(id);
-            _blogRepo.updateBlog(b);
-            return View(b);
+            EditModelBlog b1 = new EditModelBlog
+            {
+                Id = b.Id,
+                description = b.description,
+                title = b.title,
+                image = b.image,
+                theme = b.theme,
+            };
+            return View(b1);
+
         }
 
         // POST: BlogController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [Route("edit/{id}")]
+        public ActionResult Edit(EditModelBlog emb)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            Blog b = _blogRepo.getBlog(@emb.Id);
+            b.title = emb.title;
+            b.description = emb.description;
+            b.theme = emb.theme;
+            b.image = emb.image;
+            _blogRepo.updateBlog(b);
+            return RedirectToAction("getBlogs");
         }
 
-        [Route("/delete/{id}", Name = "delete")]
+        [Route("delete/{id}", Name = "delete")]
         // GET: BlogController/Delete/5
         public ActionResult Delete(int id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Blog b = _blogRepo.getBlog(id);
-            _blogRepo.deleteBlog(b);
+            if (b == null)
+            {
+                return HttpNotFound();
+            }
             return View(b);
+        }
+
+        private ActionResult HttpNotFound()
+        {
+            throw new NotImplementedException();
+        }
+        private class HttpStatusCodeResult : ActionResult
+        {
+            private HttpStatusCode badRequest;
+
+            public HttpStatusCodeResult(HttpStatusCode badRequest)
+            {
+                this.badRequest = badRequest;
+            }
         }
 
         // POST: BlogController/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Route("delete/{id}")]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
+                Blog b = _blogRepo.getBlog(id);
+                _blogRepo.deleteBlog(b);
+                return RedirectToAction("account", "user");
+
             }
         }
     }

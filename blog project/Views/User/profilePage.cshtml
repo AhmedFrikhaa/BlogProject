@@ -61,7 +61,7 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn btn-info" asp-action="editProfile" >Edit</a>
+                      <a class="btn btn-info" asp-action="editProfile"  >Edit</a>
                     </div>
                   </div>
                 </div>
@@ -87,8 +87,8 @@
                             </h3>
                             <div class="mb-1 text-muted">@userBlogs.ElementAt(i).date</div>
                             <p class="card-text mb-auto">@userBlogs.ElementAt(i).description</p>
-                                <a asp-controller="Blog" asp-action="Details">Continue reading</a>
-                                <a class="btn btn " asp-action="Edit" asp-controller="Blog">
+                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@userBlogs.ElementAt(i).Id">Continue reading</a>
+                                <a class="btn btn " asp-action="Edit" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
                                     
                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -98,7 +98,7 @@
                                   </svg>
 
                                 </a>
-                                <a class="btn btn" asp-action="Delete" asp-controller="Blog">
+                                    <a class="btn btn" asp-action="Delete" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
                                     
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -121,8 +121,8 @@
                             </h3>
                             <div class="mb-1 text-muted">@userBlogs.ElementAt(i+1).date</div>
                             <p class="card-text mb-auto">@userBlogs.ElementAt(i+1).description</p>
-                                    <a asp-controller="Blog" asp-action="Details">Continue reading</a>
-                                <a class="btn btn " asp-action="Edit" asp-controller="Blog">
+                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@userBlogs.ElementAt(i).Id">Continue reading</a>
+                                    <a class="btn btn " asp-action="Edit" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -132,7 +132,7 @@
                                     </svg>
 
                                 </a>
-                                <a class="btn btn" asp-action="Delete" asp-controller="Blog">
+                                    <a class="btn btn" asp-action="Delete" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -159,8 +159,8 @@
                             </h3>
                             <div class="mb-1 text-muted">@userBlogs.ElementAt(i).date</div>
                             <p class="card-text mb-auto">@userBlogs.ElementAt(i).description</p>
-                                <a asp-controller="Blog" asp-action="Details">Continue reading</a>
-                                <a class="btn btn " asp-action="Edit" asp-controller="Blog">
+                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@userBlogs.ElementAt(i).Id">Continue reading</a>
+                                    <a class="btn btn " asp-action="Edit" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
                                     
                                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -170,7 +170,7 @@
                                   </svg>
 
                                 </a>
-                                <a class="btn btn" asp-action="Delete" asp-controller="Blog">
+                                    <a class="btn btn" asp-action="Delete" asp-controller="Blog" asp-route-id="@userBlogs.ElementAt(i).Id">
                                     
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

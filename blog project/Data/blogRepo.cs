@@ -34,6 +34,7 @@ namespace blog_project.Data
         }
         public void updateBlog(Blog b)
         {
+            
             context.Blog.Update(b);
             context.SaveChanges();
         }

@@ -18,7 +18,7 @@
                 <div class="course-preview">
                     <h6>@blog.date</h6>
                     <h2>@blog.title</h2>
-                    <a href="#">read more ..<i class="fas fa-chevron-right"></i></a>
+                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">read more ..<i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="course-info">
                     <div class="progress-container">
