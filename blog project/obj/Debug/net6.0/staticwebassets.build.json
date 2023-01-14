@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e7v9D884kgZjEGkXmHYGQm5AWRq0u7Pq4xcI7v8IciA=",
+  "Hash": "uvtgJZXUQMb2oXx0vCiMSrPT3IzHVs9qnuv/EHVF7cQ=",
   "Source": "blog project",
   "BasePath": "_content/blog project",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\media\\82eea3dd-8f9b-4937-9939-e351954d9518-20221209_163147.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\Desktop\\BLOG\\blog project\\wwwroot\\media\\back.jpg",
+      "SourceId": "blog project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\Desktop\\BLOG\\blog project\\wwwroot\\",
+      "BasePath": "_content/blog project",
+      "RelativePath": "media/back.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\back.jpg"
     },
     {
       "Identity": "C:\\Users\\LENOVO\\Desktop\\BLOG\\blog project\\wwwroot\\media\\background.jpg",

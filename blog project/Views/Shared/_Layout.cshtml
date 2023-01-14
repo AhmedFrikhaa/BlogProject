@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+ 
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,6 +16,8 @@
 </head>
 <body>
     
+    
+
     <header class="navbar navbar-expand navbar-toggleable navbar-light bg-white border-bottom box-shadow mb-5 flex-column flex-md-row bd-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand mr-0 mr-md-2" asp-area="" asp-controller="Blog" asp-action="getBlogs">
@@ -20,17 +26,28 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav bd-navbar-nav flex-row">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="getBlogs">Feed</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li >
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="getBlogs">Feed</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="profilePage">Profile</a>
-                        </li >
-                    </ul>     
-                </div>
-                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                            </li >
+                        }
+                    }
+                </ul>     
+            </div>
+            @{
+                if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
                         <li class="nav-item">
                             <a class="btn btn " asp-action="signOut" asp-controller="Authentification">
                                 <b>
@@ -61,6 +78,8 @@
 
                         </li>
                     </ul>
+                }
+            }
             </div>
     </header>   
     <div class="container">
